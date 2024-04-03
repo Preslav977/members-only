@@ -57,3 +57,7 @@ exports.user_create_post = [
     });
   }),
 ];
+
+exports.user_log_in_post = (req, res, next) => {
+  res.render("log-in-form");
+};

@@ -56,6 +56,14 @@ passport.use(
   }),
 );
 
+app.post(
+  "/log-in",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/",
+  }),
+);
+
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
