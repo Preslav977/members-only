@@ -1,5 +1,22 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Members only club 
+
+  ul 
+    a(href="/sign-up") 
+      li Sign Up
+    a(href="/log-in") 
+      li Log In
+
+  h2 Special club for members only 
+
+  h3 Everybody can send messages 
+
+  h4 Non-members can only see title and contents 
+
+  h5 Only members can see the author and date
+
+  if user 
+    h1 Test
+

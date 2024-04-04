@@ -44,7 +44,7 @@ exports.user_create_post = [
         const user = new User({
           first_name: req.body.first_name,
           last_name: req.body.last_name,
-          email: req.body.email,
+          username: req.body.username,
           password: hashedPassword,
           confirm_password: hashedPassword,
           membership_status: false,
@@ -58,6 +58,17 @@ exports.user_create_post = [
   }),
 ];
 
-exports.user_log_in_post = (req, res, next) => {
+exports.user_log_in_get = (req, res, next) => {
   res.render("log-in-form");
+};
+
+exports.user_become_member_get = (req, res, next) => {
+  res.render("become-member-form");
+};
+
+exports.user_become_member_post = (req, res, next) => {
+  // if user found maybe by name or id ?
+  // and passcode is equal to the value of the input
+  // update this memembership status to true otherwise
+  // show wrong passcode
 };

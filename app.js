@@ -10,7 +10,7 @@ const bcrypt = require("bcryptjs");
 
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 const User = require("./models/user");
 
 const indexRouter = require("./routes/index");
@@ -38,14 +38,19 @@ app.use(
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
+app.get("/", (req, res) => {
+  res.render("index", { user: req.user });
+  console.log(req.user);
+});
+
 passport.use(
-  new LocalStrategy(async (first_name, last_name, password, done) => {
+  new LocalStrategy(async (username, password, done) => {
     try {
-      const user = await User.findOne({ first_name, last_name });
+      const user = await User.findOne({ username });
       if (!user) {
         return done(null, false, { message: "Incorrect username" });
       }
-      const match = await bcrypt.compare(password, User.password);
+      const match = await bcrypt.compare(password, user.password);
       if (!match) {
         return done(null, false, { message: "Incorrect password" });
       }
@@ -53,14 +58,6 @@ passport.use(
     } catch (err) {
       return done(err);
     }
-  }),
-);
-
-app.post(
-  "/log-in",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/",
   }),
 );
 
@@ -76,6 +73,14 @@ passport.deserializeUser(async (id, done) => {
     done(err);
   }
 });
+
+app.post(
+  "/log-in",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/",
+  }),
+);
 
 app.use(logger("dev"));
 app.use(express.json());

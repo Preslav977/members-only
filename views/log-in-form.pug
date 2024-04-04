@@ -2,10 +2,18 @@ extends layout
 
 block content 
 
-    h1 Log in 
+    h1 Members only club 
+
+    ul 
+        a(href="/sign-up") 
+            li Sign Up
+        a(href="/log-in") 
+            li Log In
+
+    h1 Log In 
     form(action="/log-in" method='POST')
-        label(for="email") Email 
-        input#email(type="email" name="email")
+        label(for="username") Username 
+        input#username(type="text" name="username")
         label(for="password") Password 
         input#password(type="password" name="password") 
         button Log In 
