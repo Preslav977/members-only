@@ -66,9 +66,29 @@ exports.user_become_member_get = (req, res, next) => {
   res.render("become-member-form");
 };
 
-exports.user_become_member_post = (req, res, next) => {
-  // if user found maybe by name or id ?
-  // and passcode is equal to the value of the input
-  // update this memembership status to true otherwise
-  // show wrong passcode
-};
+exports.user_become_member_post = [
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+
+    console.log(req.body.passcode);
+    console.log(process.env.passcode);
+    // res.render("become-member-form");
+
+    const user = await User.findById(req.params.id).exec();
+
+    if (!user && req.body.passcode !== process.env.passcode) {
+      res.render("become-member-form", {
+        errors: errors.array(),
+      });
+    } else {
+      await User.findByIdAndUpdate(req.params.id, {
+        membership_status: true,
+      });
+      res.redirect("/");
+    }
+    // if user found maybe by username or id ?
+    // and passcode is equal to the value of the input
+    // update this memembership status to true otherwise
+    // show wrong passcode
+  }),
+];
