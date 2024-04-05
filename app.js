@@ -40,7 +40,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   res.render("index", { user: req.user });
-  console.log(req.user);
+  console.log(req.user._id);
 });
 
 passport.use(

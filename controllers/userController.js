@@ -58,9 +58,9 @@ exports.user_create_post = [
   }),
 ];
 
-exports.user_log_in_get = (req, res, next) => {
+exports.user_log_in_get = asyncHandler(async (req, res, next) => {
   res.render("log-in-form");
-};
+});
 
 exports.user_become_member_get = (req, res, next) => {
   res.render("become-member-form");
@@ -74,14 +74,14 @@ exports.user_become_member_post = [
     console.log(process.env.passcode);
     // res.render("become-member-form");
 
-    const user = await User.findById(req.params.id).exec();
+    const user = await User.findById(req.user._id).exec();
 
-    if (!user && req.body.passcode !== process.env.passcode) {
+    if (!user || req.body.passcode !== process.env.passcode) {
       res.render("become-member-form", {
         errors: errors.array(),
       });
     } else {
-      await User.findByIdAndUpdate(req.params.id, {
+      await User.findByIdAndUpdate(req.user._id, {
         membership_status: true,
       });
       res.redirect("/");
