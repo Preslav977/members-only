@@ -27,10 +27,10 @@ exports.user_create_post = [
   body("email")
     .trim()
     .isLength({ min: 5 })
-    .isLength({ max: 50 })
+    .isLength({ max: 30 })
     .escape()
-    .withMessage("Email must be at least 5 characters and not more than 50."),
-  body("password").isLength({ min: 5 }),
+    .withMessage("Email must be at least 5 characters and not more than 30."),
+  body("password").isLength({ min: 8 }),
   body("confirm_password").custom(
     (value, { req }) => value === req.body.password,
   ),
@@ -70,10 +70,6 @@ exports.user_become_member_post = [
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
 
-    console.log(req.body.passcode);
-    console.log(process.env.passcode);
-    // res.render("become-member-form");
-
     const user = await User.findById(req.user._id).exec();
 
     if (!user || req.body.passcode !== process.env.passcode) {
@@ -86,9 +82,5 @@ exports.user_become_member_post = [
       });
       res.redirect("/");
     }
-    // if user found maybe by username or id ?
-    // and passcode is equal to the value of the input
-    // update this memembership status to true otherwise
-    // show wrong passcode
   }),
 ];

@@ -40,7 +40,13 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   res.render("index", { user: req.user });
-  console.log(req.user._id);
+  // console.log(req.user);
+});
+
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  console.log(res.locals.currentUser);
+  next();
 });
 
 passport.use(
@@ -81,6 +87,15 @@ app.post(
     failureRedirect: "/",
   }),
 );
+
+app.get("/log-out", (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+});
 
 app.use(logger("dev"));
 app.use(express.json());
