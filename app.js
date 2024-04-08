@@ -11,11 +11,13 @@ const bcrypt = require("bcryptjs");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const asyncHandler = require("express-async-handler");
 const User = require("./models/user");
 
-const indexRouter = require("./routes/index");
+// const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const membersOnlyRouter = require("./routes/members-only");
+const Message = require("./models/message");
 
 const app = express();
 
@@ -38,9 +40,13 @@ app.use(
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.render("index", { user: req.user });
-});
+app.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    const message = await Message.find().exec();
+    res.render("index", { user: req.user, message });
+  }),
+);
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
@@ -101,7 +107,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
+// app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/", membersOnlyRouter);
 

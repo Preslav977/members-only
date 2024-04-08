@@ -2,13 +2,6 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 const Message = require("../models/message");
 
-exports.index = asyncHandler(async (req, res, next) => {
-  const message = await Message.find().sort({ title: 1 }).exec();
-  res.render("index", {
-    message,
-  });
-});
-
 exports.new_message_get = (req, res, next) => {
   res.render("new-message-form");
 };
