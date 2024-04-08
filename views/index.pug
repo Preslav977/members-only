@@ -26,5 +26,13 @@ block content
             a(href="/admin-mode")
                 li Admin Mode 
             a(href="/log-out")
-                li Log Out  
+                li Log Out
+
+
+    if message.length 
+        ul
+            each mess in message 
+                li 
+                    p #{mess.title} 
+
 

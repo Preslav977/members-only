@@ -40,12 +40,10 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   res.render("index", { user: req.user });
-  // console.log(req.user);
 });
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  console.log(res.locals.currentUser);
   next();
 });
 
