@@ -29,12 +29,14 @@ block content
                 li Log Out
 
 
-    if message.length 
+
+    if message.length
         ul
             each mess in message 
-                li 
-                    p #{mess.title} 
-                    p #{mess.content}
-                    p #{mess.timestamp}
+                div 
+                    p #[strong Title:] #{mess.title} 
+                    p #[strong Content:] #{mess.content}
+                    p #[strong Timestamp: ] #{mess.timestamp}
+                    p #[strong User: ] #{mess.user.username}
 
 

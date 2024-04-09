@@ -43,7 +43,7 @@ app.use(express.urlencoded({ extended: false }));
 app.get(
   "/",
   asyncHandler(async (req, res) => {
-    const message = await Message.find().exec();
+    const message = await Message.find().populate("user").exec();
     res.render("index", { user: req.user, message });
   }),
 );

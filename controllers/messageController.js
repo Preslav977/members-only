@@ -26,7 +26,10 @@ exports.new_message_post = [
       title: req.body.title,
       timestamp: new Date(),
       content: req.body.content,
+      user: req.user,
     });
+
+    console.log(req.body.user);
 
     if (!errors.isEmpty()) {
       res.render("new-message-form", {
