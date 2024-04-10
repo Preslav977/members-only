@@ -19,4 +19,8 @@ router.get("/new-message", message_controller.new_message_get);
 
 router.post("/new-message", message_controller.new_message_post);
 
+router.get("/become-admin", user_controller.user_become_admin_get);
+
+router.post("/become-admin", user_controller.user_become_admin_post);
+
 module.exports = router;

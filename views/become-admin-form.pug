@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+
+    h1 Become an admin 
+
+    h2 Enter the correct passcode to gain admin status 
+
+    h3 This time there are no hints 
+
+    form(action="" method='POST') 
+        label(for="adminPasscode")
+        input#adminPasscode(type="text" name="adminPasscode")
+        button(type="submit") Submit

@@ -43,8 +43,16 @@ app.use(express.urlencoded({ extended: false }));
 app.get(
   "/",
   asyncHandler(async (req, res) => {
-    const message = await Message.find().populate("user").exec();
-    res.render("index", { user: req.user, message });
+    const messages = await Message.find().populate("user").exec();
+    res.render("index", { user: req.user, messages });
+  }),
+);
+
+app.post(
+  "/",
+  asyncHandler(async (req, res) => {
+    await Message.findByIdAndDelete(req.body.id);
+    res.redirect("/");
   }),
 );
 

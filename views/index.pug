@@ -3,11 +3,22 @@ extends layout
 block content
     h1 Members only club 
 
-    ul 
-        a(href="/sign-up") 
-            li Sign Up
-        a(href="/log-in") 
-            li Log In
+    if user
+        ul 
+            a(href="/new-message") 
+                li New Message
+            a(href="/become-member") 
+                li Become Member
+            a(href="/become-admin")
+                li Admin Mode 
+            a(href="/log-out")
+                li Log Out
+    else 
+        ul 
+            a(href="/sign-up")
+                li Sign Up 
+            a(href="/log-in")
+                li Log In  
 
     h2 Special club for members only 
 
@@ -17,26 +28,29 @@ block content
 
     h5 Only members can see the author and date
 
-    if user
+
+    if messages.length 
+    if user && user.membership_status
         ul 
-            a(href="/new-message") 
-                li New Message
-            a(href="/become-member") 
-                li Become Member
-            a(href="/admin-mode")
-                li Admin Mode 
-            a(href="/log-out")
-                li Log Out
+            each message in messages 
+                li #{message.title}
+                li #{message.content}
+                li #{message.timestamp}
+                li #{message.user.first_name} #{message.user.last_name}
+    else if user && user.admin
+        ul 
+            each message in messages
+                form(action="" method='POST')
+                    input#messageid(type="hidden" name="id" value=message._id)
+                    li #{message.title}
+                    li #{message.content}
+                    li #{message.timestamp}
+                    li #{message.user.first_name} #{message.user.last_name}
+                    button(type="submit") Delete
 
 
 
-    if message.length
-        ul
-            each mess in message 
-                div 
-                    p #[strong Title:] #{mess.title} 
-                    p #[strong Content:] #{mess.content}
-                    p #[strong Timestamp: ] #{mess.timestamp}
-                    p #[strong User: ] #{mess.user.username}
-
-
+    else
+        each message in messages 
+            li #{message.title}
+            li #{message.content}

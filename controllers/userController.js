@@ -48,7 +48,9 @@ exports.user_create_post = [
           password: hashedPassword,
           confirm_password: hashedPassword,
           membership_status: false,
+          admin: false,
         });
+
         const result = await user.save();
         res.redirect("/");
       } catch (error) {
@@ -79,6 +81,29 @@ exports.user_become_member_post = [
     } else {
       await User.findByIdAndUpdate(req.user._id, {
         membership_status: true,
+      });
+      res.redirect("/");
+    }
+  }),
+];
+
+exports.user_become_admin_get = (req, res, next) => {
+  res.render("become-admin-form");
+};
+
+exports.user_become_admin_post = [
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+
+    const user = await User.findById(req.user._id).exec();
+
+    if (!user || req.body.adminPasscode !== process.env.adminPasscode) {
+      res.render("become-admin-form", {
+        errors: errors.array(),
+      });
+    } else {
+      await User.findByIdAndUpdate(req.user._id, {
+        admin: true,
       });
       res.redirect("/");
     }

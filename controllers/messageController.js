@@ -29,8 +29,6 @@ exports.new_message_post = [
       user: req.user,
     });
 
-    console.log(req.body.user);
-
     if (!errors.isEmpty()) {
       res.render("new-message-form", {
         errors: errors.array(),
