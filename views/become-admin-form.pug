@@ -1,14 +1,14 @@
 extends layout 
 
 block content 
+    div(class='form-container')
+        h1 Become an admin 
 
-    h1 Become an admin 
+        p Enter the correct passcode to gain admin status 
 
-    h2 Enter the correct passcode to gain admin status 
+        p This time there are no hints 
 
-    h3 This time there are no hints 
-
-    form(action="" method='POST') 
-        label(for="adminPasscode")
-        input#adminPasscode(type="text" name="adminPasscode")
-        button(type="submit") Submit
+        form(action="" class='become-member-form' method='POST') 
+            label(for="adminPasscode")
+            input#adminPasscode(type="text" name="adminPasscode")
+            button(type="submit") Submit

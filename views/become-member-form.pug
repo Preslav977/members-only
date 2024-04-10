@@ -2,11 +2,12 @@ extends layout
 
 block content 
 
-    h1 Become a member 
-    p Enter the correct passcode to gain member status 
-    p What is my favorite music genre?
-    form(action="" method='POST') 
-        label(for="passcode") Passcode 
-        input#passcode(type="text" name="passcode")
-        button(type="submit") Submit 
+    div(class='form-container')
+        h1 Become a member 
+        p Enter the correct passcode to gain member status 
+        p What is my favorite music genre?
+        form(action="" class='become-member-form' method='POST') 
+            label(for="passcode") Passcode 
+            input#passcode(type="text" class='passcode-input' name="passcode")
+            button(type="submit") Submit 
 

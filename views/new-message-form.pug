@@ -2,18 +2,21 @@ extends layout
 
 block content 
 
-    h1 New message 
+    div(class='form-container')
 
-    h2 Hello, #{currentUser.username}
+        h1 New message 
 
-    h3 What's on your mind?
+        p Hello, #{currentUser.username}
 
-    form(action="" method='POST')
-        label(for="title") Title 
-        input#title(type="text" name="title" required)
-        label(for="content") Content 
-        input#content(type="text" name="content" required)
-        button(type="submit") Submit  
+        p What's on your mind?
+
+        form(action="" class='form' method='POST')
+            label(for="title") Title 
+            input#title(type="text" name="title" required)
+            label(for="content") Content 
+            textarea#content(name="content" cols="30" rows="10" required) 
+            div(class='log-in-btn-container')
+                button(type="submit") Submit  
 
 
 

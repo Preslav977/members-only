@@ -1,25 +1,8 @@
 extends layout
 
 block content
-    h1 Members only club 
 
-    if user
-        ul 
-            a(href="/new-message") 
-                li New Message
-            a(href="/become-member") 
-                li Become Member
-            a(href="/become-admin")
-                li Admin Mode 
-            a(href="/log-out")
-                li Log Out
-    else 
-        ul 
-            a(href="/sign-up")
-                li Sign Up 
-            a(href="/log-in")
-                li Log In  
-
+  div(class='main-content-container')
     h2 Special club for members only 
 
     h3 Everybody can send messages 
@@ -28,29 +11,29 @@ block content
 
     h5 Only members can see the author and date
 
-
     if messages.length 
     if user && user.membership_status
-        ul 
-            each message in messages 
-                li #{message.title}
-                li #{message.content}
-                li #{message.timestamp}
-                li #{message.user.first_name} #{message.user.last_name}
+      div(class='message-container') 
+        each message in messages
+          div(class='message-content')
+            p Title: #{message.title}
+            p Content: #{message.content}
+            p Date: #{message.timestamp}
+            p User: #{message.user.first_name} #{message.user.last_name}
     else if user && user.admin
-        ul 
-            each message in messages
-                form(action="" method='POST')
-                    input#messageid(type="hidden" name="id" value=message._id)
-                    li #{message.title}
-                    li #{message.content}
-                    li #{message.timestamp}
-                    li #{message.user.first_name} #{message.user.last_name}
-                    button(type="submit") Delete
-
-
-
+      div(class='message-container') 
+        each message in messages
+          div(class='message-content')
+            form(action="" method='POST')
+              input#messageid(type="hidden" name="id" value=message._id)
+              p Title: #{message.title}
+              p Content: #{message.content}
+              p Date: #{message.timestamp}
+              p User: #{message.user.first_name} #{message.user.last_name}
+              button(type="submit" class='delete-msg-button') Delete
     else
-        each message in messages 
-            li #{message.title}
-            li #{message.content}
+      div(class='message-container') 
+        each message in messages
+          div(class='message-content')
+            p Title: #{message.title}
+            p Content: #{message.content}

@@ -1,8 +1,116 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  /* outline: 2px solid black; */
+  height: 10vh;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.navbar {
+  /* outline: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.navbar-svg {
+  width: 30px;
+}
+
+.main-content-container {
+  /* outline: 2px solid blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  gap: 15px;
+}
+
+.message-container {
+  /* outline: 2px solid black; */
+  padding: 20px;
+  line-height: 20px;
+}
+
+.delete-msg-button {
+  margin-top: 5px;
+  padding: 4px 8px 4px 8px;
+  margin-bottom: 5px;
+}
+
+.delete-msg-button:hover {
+  cursor: pointer;
+}
+
+.message-content {
+  outline: 2px solid brown;
+  margin-bottom: 20px;
+  width: 400px;
+}
+
+.form-container {
+  /* outline: 2px solid red; */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 10px; */
+}
+
+input {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-btn {
+  margin-top: 10px;
+}
+
+.log-in-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  margin: 10px 0px 10px 0px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  resize: none;
+}
+
+.become-member-form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
 }
