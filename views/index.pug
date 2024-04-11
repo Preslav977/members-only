@@ -23,7 +23,7 @@ block content
             p Title: #{message.title}
             p Content: #{message.content}
             p Date: #{message.timestamp}
-            p User Name: #{message.user.first_name} #{message.user.last_name}
+            p User Names: #{message.user.first_name} #{message.user.last_name}
     else if user && user.admin
       div(class='message-container') 
         each message in messages

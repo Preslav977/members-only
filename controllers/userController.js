@@ -24,12 +24,14 @@ exports.user_create_post = [
     .withMessage(
       "Last name must be at least 5 characters and not more than 30.",
     ),
-  body("email")
+  body("username")
     .trim()
     .isLength({ min: 5 })
     .isLength({ max: 30 })
     .escape()
-    .withMessage("Email must be at least 5 characters and not more than 30."),
+    .withMessage(
+      "Username must be at least 5 characters and not more than 30.",
+    ),
   body("password").isLength({ min: 8 }),
   body("confirm_password").custom(
     (value, { req }) => value === req.body.password,
@@ -73,7 +75,6 @@ exports.user_become_member_post = [
     const errors = validationResult(req);
 
     const user = await User.findById(req.user._id).exec();
-
     if (!user || req.body.passcode !== process.env.passcode) {
       res.render("become-member-form", {
         errors: errors.array(),

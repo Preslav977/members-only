@@ -10,13 +10,13 @@ exports.new_message_post = [
   body("title")
     .trim()
     .isLength({ min: 5 })
-    .isLength({ max: 30 })
+    .isLength({ max: 50 })
     .escape()
     .withMessage("Title must be at least 5 characters and not more than 30."),
   body("content")
     .trim()
     .isLength({ min: 5 })
-    .isLength({ max: 30 })
+    .isLength({ max: 100 })
     .withMessage("Content must be at least 5 characters and not more than 30."),
 
   asyncHandler(async (req, res, next) => {
@@ -24,8 +24,8 @@ exports.new_message_post = [
 
     const message = new Message({
       title: req.body.title,
-      timestamp: new Date(),
       content: req.body.content,
+      timestamp: new Date(),
       user: req.user,
     });
 

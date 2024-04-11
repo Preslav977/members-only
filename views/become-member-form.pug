@@ -13,4 +13,8 @@ block content
         form(action="" class='become-member-form' method='POST') 
             label(for="passcode") Passcode 
             input#passcode(type="text" class='passcode-input' name="passcode")
-            button(type="submit" class='submit-btn') Submit 
+            button(type="submit" class='submit-btn') Submit
+        if errors 
+            ul 
+                for error in errors 
+                    li!= error.msg 

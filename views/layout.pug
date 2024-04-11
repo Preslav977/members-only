@@ -11,29 +11,29 @@ html
     h1 Members 
       span#header only club
 
-      if user
-        nav(class='navbar')
-          img(src="./public/message.svg" class='navbar-svg' alt="")
-          a(href="/new-message") 
-            li New
-              span#subheader  Message
-          img(src="./public/star.svg" class='navbar-svg' alt="")
-          a(href="/become-member") 
-            li Become A
-              span#header  Member
-          img(src="./public/padlock.svg" class='navbar-svg' alt="")
-          a(href="/become-admin")
-            li#admin-mode Admin
-              span  Mode
-          img(src="./public/log-out.svg" class='navbar-svg' alt="")
-          a(href="/log-out")
-            li Log Out
-      else
-        nav(class='navbar')
-          img(src="./public/person.svg" class='navbar-svg' alt="")
-          a(href="/sign-up")
-            li Sign Up
-          img(src="./public/log-in.svg" class='navbar-svg' alt="")
-          a(href="/log-in")
-            li Log In 
+    if user
+      nav(class='navbar')
+        img(src="./public/message.svg" class='navbar-svg' alt="")
+        a(href="/new-message") 
+          li New
+            span#subheader  Message
+        img(src="./public/star.svg" class='navbar-svg' alt="")
+        a(href="/become-member") 
+          li Become A
+            span#header  Member
+        img(src="./public/padlock.svg" class='navbar-svg' alt="")
+        a(href="/become-admin")
+          li#admin-mode Admin
+            span  Mode
+        img(src="./public/log-out.svg" class='navbar-svg' alt="")
+        a(href="/log-out")
+          li Log Out
+    else
+      nav(class='navbar')
+        img(src="./public/person.svg" class='navbar-svg' alt="")
+        a(href="/sign-up")
+          li Sign Up
+        img(src="./public/log-in.svg" class='navbar-svg' alt="")
+        a(href="/log-in")
+          li Log In 
   block content
