@@ -2,13 +2,18 @@ extends layout
 
 block content 
     div(class='form-container')
-        h1 Become an admin 
+        h1 Become an 
+            span#admin-mode  admin 
 
-        p Enter the correct passcode to gain admin status 
+        p#para Enter the correct passcode to gain
+            span#admin-mode  admin status 
 
-        p This time there are no hints 
+        p#para This time there are
+            span#admin-mode  no hints 
+
+        p#para On successful guess you will be redirected to main page!
 
         form(action="" class='become-member-form' method='POST') 
             label(for="adminPasscode")
             input#adminPasscode(type="text" name="adminPasscode")
-            button(type="submit") Submit
+            button(type="submit" class='admin-mode-btn') Submit

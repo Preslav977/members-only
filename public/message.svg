@@ -1,3 +1,7 @@
-<?xml version="1.0" standalone="no"?>
-        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
-        "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#231f20;}.cls-2{fill:none;opacity:0;}</style></defs><title>message-circle</title><g id="Layer_2" data-name="Layer 2"><g id="message-circle"><g id="message-circle-2" data-name="message-circle"><circle class="cls-1" cx="12" cy="12" r="1"/><circle class="cls-1" cx="16" cy="12" r="1"/><circle class="cls-1" cx="8" cy="12" r="1"/><path class="cls-1" d="M19.07,4.93a10,10,0,0,0-16.28,11,1.06,1.06,0,0,1,.09.64L2,20.8a1,1,0,0,0,.27.91A1,1,0,0,0,3,22l.2,0,4.28-.86a1.26,1.26,0,0,1,.64.09,10,10,0,0,0,11-16.28Zm.83,8.36a8,8,0,0,1-11,6.08,3.26,3.26,0,0,0-1.25-.26,3.43,3.43,0,0,0-.56.05l-2.82.57.57-2.82a3.09,3.09,0,0,0-.21-1.81,8,8,0,0,1,6.08-11h0a8,8,0,0,1,9.19,9.19Z"/><rect class="cls-2" width="24" height="24"/></g></g></g></svg>  
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="SVGRepo_iconCarrier"> <path d="M3 7.2C3 6.07989 3 5.51984 3.21799 5.09202C3.40973 4.71569 3.71569 4.40973 4.09202 4.21799C4.51984 4 5.0799 4 6.2 4H17.8C18.9201 4 19.4802 4 19.908 4.21799C20.2843 4.40973 20.5903 4.71569 20.782 5.09202C21 5.51984 21 6.0799 21 7.2V20L17.6757 18.3378C17.4237 18.2118 17.2977 18.1488 17.1656 18.1044C17.0484 18.065 16.9277 18.0365 16.8052 18.0193C16.6672 18 16.5263 18 16.2446 18H6.2C5.07989 18 4.51984 18 4.09202 17.782C3.71569 17.5903 3.40973 17.2843 3.21799 16.908C3 16.4802 3 15.9201 3 14.8V7.2Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+</svg>

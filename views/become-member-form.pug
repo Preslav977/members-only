@@ -3,11 +3,14 @@ extends layout
 block content 
 
     div(class='form-container')
-        h1 Become a member 
-        p Enter the correct passcode to gain member status 
-        p What is my favorite music genre?
+        h1 Become a 
+            span#header  member
+        p#para Enter the correct passcode to gain
+            span#header  member status 
+        p#para What is my favorite music
+            span#header  genre?
+        p#para On successful guess you will be redirected to main page!
         form(action="" class='become-member-form' method='POST') 
             label(for="passcode") Passcode 
             input#passcode(type="text" class='passcode-input' name="passcode")
-            button(type="submit") Submit 
-
+            button(type="submit" class='submit-btn') Submit 

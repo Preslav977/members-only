@@ -10,4 +10,8 @@ block content
             label(for="password") Password 
             input#password(type="password" name="password")
             div(class='log-in-btn-container') 
-                button(class='log-in-btn') Log In 
+                button(class='log-in-btn') Log In
+        if errors 
+            span 
+                for error in errors 
+                    span!= error.msg

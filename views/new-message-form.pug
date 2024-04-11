@@ -2,13 +2,18 @@ extends layout
 
 block content 
 
+
+
     div(class='form-container')
 
-        h1 New message 
+        h1 New
+            span#subheader  Message 
 
-        p Hello, #{currentUser.username}
+        p#para Hello, 
+            span#subheader #{currentUser.username}
 
-        p What's on your mind?
+        p#para What's on
+            span#subheader  your mind?
 
         form(action="" class='form' method='POST')
             label(for="title") Title 
@@ -16,7 +21,7 @@ block content
             label(for="content") Content 
             textarea#content(name="content" cols="30" rows="10" required) 
             div(class='log-in-btn-container')
-                button(type="submit") Submit  
+                button(type="submit" class='new-msg-btn') Submit  
 
 
 

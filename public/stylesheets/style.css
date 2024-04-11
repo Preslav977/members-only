@@ -6,7 +6,8 @@
 
 .main-container {
   /* outline: 2px solid black; */
-  height: 10vh;
+  /* height: 20vh; */
+  height: 100px;
 }
 
 h1 {
@@ -19,7 +20,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   margin-top: 20px;
 }
 
@@ -29,6 +30,8 @@ a {
 
 li {
   list-style-type: none;
+  color: #f7f9f9;
+  font-size: 14px;
 }
 
 .navbar-svg {
@@ -53,8 +56,11 @@ li {
 
 .delete-msg-button {
   margin-top: 5px;
-  padding: 4px 8px 4px 8px;
+  padding: 6px 8px 6px 8px;
   margin-bottom: 5px;
+  background-color: #641ae6;
+  color: #f7f9f9;
+  border: 0;
 }
 
 .delete-msg-button:hover {
@@ -62,9 +68,10 @@ li {
 }
 
 .message-content {
-  outline: 2px solid brown;
+  background-color: #0f0f0f;
   margin-bottom: 20px;
   width: 400px;
+  color: #f7f9f9;
 }
 
 .form-container {
@@ -80,6 +87,7 @@ li {
 input {
   display: flex;
   margin-bottom: 10px;
+  width: 300px;
 }
 
 .form-content {
@@ -88,7 +96,10 @@ input {
 }
 
 .submit-btn {
-  margin-top: 10px;
+  /* margin-top: 10px; */
+  background-color: #641ae6;
+  color: #f7f9f9;
+  border: 0;
 }
 
 .log-in-btn-container {
@@ -113,4 +124,101 @@ textarea {
   width: 300px;
   display: flex;
   flex-direction: column;
+}
+
+body {
+  background-color: #1d232a;
+}
+
+#header {
+  color: #641ae6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #f7f9f9;
+}
+
+h4,
+h5 {
+  font-size: 16px;
+}
+
+#subheader {
+  color: #d926a9;
+}
+
+.message-content > p {
+  margin-left: 20px;
+  padding: 5px 0px 5px 0px;
+}
+
+#admin-mode {
+  color: #1fb2a6;
+}
+
+#admin-mode > span {
+  color: #f7f9f9;
+}
+
+form > p,
+.delete-msg-button {
+  margin-left: 20px;
+}
+
+form > p {
+  padding: 5px 0px 5px 0px;
+}
+
+label {
+  color: #f7f9f9;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  cursor: pointer;
+}
+
+.log-in-btn {
+  background-color: #641ae6;
+  color: #f7f9f9;
+  width: 300px;
+  border: 0;
+}
+
+.log-in-btn:hover {
+  cursor: pointer;
+}
+
+#para {
+  color: #f7f9f9;
+}
+
+.new-msg-btn {
+  margin-top: 10px;
+  background-color: #d926a9;
+  color: #f7f9f9;
+  width: 300px;
+  border: 0;
+}
+
+.new-msg-btn:hover {
+  cursor: pointer;
+}
+
+a:visited {
+  color: #641ae6;
+}
+
+.admin-mode-btn {
+  background-color: #1fb2a6;
+  color: #f7f9f9;
+  border: 0;
+}
+
+.admin-mode-btn:hover {
+  cursor: pointer;
 }
