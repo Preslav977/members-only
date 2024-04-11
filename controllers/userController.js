@@ -67,7 +67,7 @@ exports.user_log_in_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.user_become_member_get = (req, res, next) => {
-  res.render("become-member-form");
+  res.render("become-member-form", { user: req.user });
 };
 
 exports.user_become_member_post = [
@@ -89,7 +89,7 @@ exports.user_become_member_post = [
 ];
 
 exports.user_become_admin_get = (req, res, next) => {
-  res.render("become-admin-form");
+  res.render("become-admin-form", { user: req.user });
 };
 
 exports.user_become_admin_post = [
