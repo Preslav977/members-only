@@ -44,7 +44,6 @@ app.get(
   "/",
   asyncHandler(async (req, res) => {
     const messages = await Message.find().populate("user").exec();
-    console.log(messages);
     res.render("index", { user: req.user, messages });
   }),
 );
