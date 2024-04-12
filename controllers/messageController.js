@@ -3,7 +3,7 @@ const { body, validationResult } = require("express-validator");
 const Message = require("../models/message");
 
 exports.new_message_get = (req, res, next) => {
-  res.render("new-message-form", { user: req.user });
+  res.render("new-message-form");
 };
 
 exports.new_message_post = [

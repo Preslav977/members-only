@@ -12,6 +12,9 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const asyncHandler = require("express-async-handler");
+const compression = require("compression");
+const helmet = require("helmet");
+const RateLimit = require("express-rate-limit");
 const User = require("./models/user");
 
 // const indexRouter = require("./routes/index");
@@ -20,6 +23,23 @@ const membersOnlyRouter = require("./routes/members-only");
 const Message = require("./models/message");
 
 const app = express();
+
+app.use(compression());
+
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      "script-src": ["'self", "code.jquery.com", "cdn.jsdelvr.net"],
+    },
+  }),
+);
+
+const limiter = RateLimit({
+  windowMs: 1 * 60 * 1000,
+  max: 20,
+});
+
+app.use(limiter);
 
 const mongoDB = process.env.mongoURL;
 mongoose.connect(mongoDB);
@@ -40,6 +60,11 @@ app.use(
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
 app.get(
   "/",
   asyncHandler(async (req, res) => {
@@ -55,11 +80,6 @@ app.post(
     res.redirect("/");
   }),
 );
-
-app.use((req, res, next) => {
-  res.locals.currentUser = req.user;
-  next();
-});
 
 passport.use(
   new LocalStrategy(async (username, password, done) => {
